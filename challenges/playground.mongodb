@@ -319,3 +319,21 @@ db.produtos.find({}, {
   nome: true,
   vendasPorDia: true,
 });
+
+// desafio 23
+use("commerce");
+db.produtos.updateMany({}, {
+  $push: {
+    tags: {
+      $each: ["combo", "tasty"],
+      $sort: 1,
+    },
+  },
+});
+
+use("commerce");
+db.produtos.find({}, {
+  _id: false,
+  nome: true,
+  tags: true,
+});
