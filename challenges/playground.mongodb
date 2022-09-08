@@ -404,3 +404,9 @@ use("commerce");
 db.produtos.countDocuments({
   nome: { $regex: /mc/ig },
 });
+
+// desafio 28
+use("commerce");
+db.produtos.countDocuments({
+  ingredientes: { $size: 4 },
+});
