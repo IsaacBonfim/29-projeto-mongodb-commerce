@@ -1,0 +1,38 @@
+// MongoDB Playground
+
+// desafio 1
+use("commerce");
+db.produtos.countDocuments();
+
+// desafio 2
+use("commerce");
+db.produtos.find({}, {
+  _id: false,
+  nome: true,
+  vendidos: true,
+}).sort({
+  vendidos: 1,
+});
+
+// desafio 3
+use("commerce");
+db.produtos.find({}, {
+  _id: false,
+  nome: true,
+  vendidos: true,
+}).sort({
+  vendidos: -1,
+}).limit(1);
+
+// desafio 4
+use("commerce");
+db.produtos.find({ 
+  $and: [
+    { vendidos: { $gt: 50 } },
+    { vendidos: { $lt: 100 } }
+  ] 
+}, {
+  _id: false,
+  nome: true,
+  vendidos: true,
+}).sort({ vendidos: 1 });
