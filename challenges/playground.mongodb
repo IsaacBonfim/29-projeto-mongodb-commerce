@@ -218,7 +218,7 @@ db.produtos.find({
   nome: true,
 });
 
-//desafio 17
+// desafio 17
 use("commerce");
 db.resumoProdutos.insertOne({
   franquia: "McDonalds",
@@ -242,6 +242,19 @@ db.produtos.updateMany({
   },
 });
 
+db.produtos.find({}, {
+  _id: false,
+  nome: true,
+  ingredientes: true,
+});
+
+// desafio 19
+use("commerce");
+db.produtos.updateMany({}, {
+  $pull: { ingredientes: "cebola" },
+});
+
+use("commerce");
 db.produtos.find({}, {
   _id: false,
   nome: true,
