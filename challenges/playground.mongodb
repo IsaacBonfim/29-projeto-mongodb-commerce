@@ -337,3 +337,21 @@ db.produtos.find({}, {
   nome: true,
   tags: true,
 });
+
+// desafio 24
+use("commerce");
+db.produtos.updateMany({}, {
+  $push: {
+    valoresNutricionais: {
+      $each: [],
+      $sort: { percentual: -1 },
+    },
+  },
+});
+
+use("commerce");
+db.produtos.find({}, {
+  _id: false,
+  nome: true,
+  valoresNutricionais: true,
+});
