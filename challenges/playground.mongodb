@@ -50,3 +50,16 @@ db.produtos.find({
   curtidas: true,
   vendidos: true,
 });
+
+// desafio 6
+use("commerce");
+db.produtos.find({
+  $and: [
+    { curtidas: { $gt: 10 } },
+    { curtidas: { $lt: 100 } },
+  ],
+}, {
+  _id: false,
+  nome: true,
+  curtidas: true,
+});
