@@ -195,7 +195,7 @@ use("commerce");
 db.produtos.find({}, {
   _id: false,
   nome: true,
-  avalicao: true,
+  avaliacao: true,
 });
 
 // desafio 16

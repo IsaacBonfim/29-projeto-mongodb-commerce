@@ -17,5 +17,5 @@ db.produtos.updateMany({
 db.produtos.find({}, {
   _id: false,
   nome: true,
-  avalicao: true,
+  avaliacao: true,
 });
