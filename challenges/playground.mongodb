@@ -217,3 +217,15 @@ db.produtos.find({
   _id: false,
   nome: true,
 });
+
+//desafio 17
+use("commerce");
+db.resumoProdutos.insertOne({
+  franquia: "McDonalds",
+  totalProdutos: db.produtos.countDocuments({}),
+});
+
+use("commerce");
+db.resumoProdutos.find({}, {
+  _id: false,
+});
