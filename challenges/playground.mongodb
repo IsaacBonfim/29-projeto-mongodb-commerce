@@ -129,3 +129,18 @@ db.produtos.find({
   curtidas: true,
   vendidos: true,
 });
+
+// desafio 12
+use("commerce");
+db.produtos.updateMany({
+  nome: { $ne: "McChicken" },
+}, {
+  $addToSet: { ingredientes: "ketchup" },
+});
+
+use("commerce");
+db.produtos.find({}, {
+  _id: false,
+  nome: true,
+  ingredientes: true,
+});
