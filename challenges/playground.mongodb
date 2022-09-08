@@ -101,3 +101,20 @@ db.produtos.find({
   _id: false,
   nome: true,
 });
+
+// desafio 10
+use("commerce");
+db.produtos.find({
+  valoresNutricionais: {
+    $elemMatch: {
+      tipo: "proteínas",
+      percentual: { 
+        $gte: 30, 
+        $lte: 40, 
+      },
+    },
+  }
+}, {
+  _id: false,
+  nome: true,
+});
