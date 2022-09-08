@@ -4,7 +4,6 @@ db.produtos.updateOne({
   $pop: { ingredientes: 1 },
 });
 
-use("commerce");
 db.produtos.find({}, {
   _id: false,
   nome: true,
