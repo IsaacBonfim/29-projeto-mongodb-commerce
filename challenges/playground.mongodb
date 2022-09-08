@@ -398,3 +398,9 @@ db.produtos.find({}, {
   nome: true,
   tags: true,
 });
+
+// desafio 27
+use("commerce");
+db.produtos.countDocuments({
+  nome: { $regex: /mc/ig },
+});
