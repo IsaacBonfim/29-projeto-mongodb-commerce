@@ -410,3 +410,16 @@ use("commerce");
 db.produtos.countDocuments({
   ingredientes: { $size: 4 },
 });
+
+// desafio 29
+use("commerce");
+db.produtos.updateMany({}, {
+  $rename: { descricao: "descricaoSite" },
+});
+
+use("commerce");
+db.produtos.find({}, {
+  _id: false,
+  nome: true,
+  descricaoSite: true,
+});
