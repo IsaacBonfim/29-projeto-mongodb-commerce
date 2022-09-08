@@ -118,3 +118,14 @@ db.produtos.find({
   _id: false,
   nome: true,
 });
+
+// desafio 11
+use("commerce");
+db.produtos.find({
+  nome: { $nin: ["Big Mac", "McChicken"] },
+}, {
+  _id: false,
+  nome: true,
+  curtidas: true,
+  vendidos: true,
+});
