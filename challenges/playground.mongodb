@@ -242,6 +242,7 @@ db.produtos.updateMany({
   },
 });
 
+use("commerce");
 db.produtos.find({}, {
   _id: false,
   nome: true,
@@ -369,6 +370,26 @@ db.produtos.updateMany({
   $push: {
     tags: "muito sódio",
   },
+});
+
+use("commerce");
+db.produtos.find({}, {
+  _id: false,
+  nome: true,
+  tags: true,
+});
+
+// desafio 26
+use("commerce");
+db.produtos.updateMany({
+  valoresNutricionais: {
+    $elemMatch: {
+      tipo: "sódio",
+      percentual: { $lt: 40, $gt: 20 },
+    },
+  },
+}, {
+  $push: { tags: "contém sódio" },
 });
 
 use("commerce");
