@@ -423,3 +423,17 @@ db.produtos.find({}, {
   nome: true,
   descricaoSite: true,
 });
+
+// desafio 30
+use("commerce");
+db.produtos.updateMany(
+  { nome: "Big Mac" },
+  { $unset: { curtidas: "" } },
+);
+
+use("commerce");
+db.produtos.find({}, {
+  _id: false,
+  nome: true,
+  curtidas: true,
+});
