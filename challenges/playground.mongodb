@@ -144,3 +144,18 @@ db.produtos.find({}, {
   nome: true,
   ingredientes: true,
 });
+
+// desafio 13
+use("commerce");
+db.produtos.updateMany({}, {
+  $set: {
+    criadoPor: "Ronald McDonald",
+  },
+});
+
+use("commerce");
+db.produtos.find({}, {
+  _id: false,
+  nome: true,
+  criadoPor: true,
+});
